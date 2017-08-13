@@ -1,0 +1,6 @@
+AppBundle\Entity\Post:
+    post_{1..10}:
+        title: <text(10)>
+        body: <text(20)>
+        created_at: <dateTime()>
+
