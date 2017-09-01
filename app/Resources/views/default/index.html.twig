@@ -1,11 +1,30 @@
-{% extends 'base.html.twig' %}
+{#  #}{% extends 'base.html.twig' %}
 
 {% block body %}
     <ul>
         {% for post in posts %}
-            <li>({{ post.id }}) {{ post.title }}</li>
+            <li>
+                <a href="/{{ post.id }}">
+                    ({{ post.id }}) {{ post.title }} {{ post.body }}
+                </a>
+            </li>
         {% endfor %}
     </ul>
+
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+<h1>{{ "form.create"|trans }}</h1>
+
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-xs-6">
+          {{ form_row(form.title) }}
+        </div>
+        <div class="col-xs-6">
+            {{ form_row(form.body) }}
+        </div>
+    </div>
+{{ form_end(form) }}
 {% endblock %}
 
 {% block stylesheets %}

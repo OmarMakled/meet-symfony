@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Validator\Constraints as AppAssert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +27,9 @@ class Post
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
+     * @AppAssert\Email()
      */
     private $title;
 
@@ -32,6 +37,8 @@ class Post
      * @var string
      *
      * @ORM\Column(name="body", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=3)
      */
     private $body;
 

@@ -1,0 +1,5 @@
+hello: "Hello"
+title: "Title"
+body: "Body"
+form:
+    create: "Create new post."
